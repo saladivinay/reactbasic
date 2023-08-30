@@ -4,6 +4,9 @@ function Todolist(props){
     return(
         <div className='box'>
             <h1>{props.title}</h1>
+            <h4>Captain:{props.head}</h4>
+            <img src={props.im}/>
+            <h4><u>team</u></h4>
             <ul>
                 {
                     todo.map((to)=>{
