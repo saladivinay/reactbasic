@@ -1,20 +1,65 @@
-import React from 'react';
-function Todolist(props){
-    var [todo,setTodo]=React.useState([...props.ar])
-    return(
-        <div className='box'>
-            <h1>{props.title}</h1>
-            <h4>Captain:{props.head}</h4>
-            <img src={props.im.src}/>
-            <h4><u>team</u></h4>
-            <ul>
-                {
-                    todo.map((to)=>{
-                        return <li>{to}</li>
-                    })
-                }
+import React from "react";
+import './index.css';
+function Todo(){
+
+    var [arr,setArr]=React.useState([ {
+        title:'clear bills',
+        status:false
+      },
+      {
+        title:'Moksha School',
+        status:true
+      },
+      {
+        title:'Manas Bus Fee',
+        status:false
+      },
+      {
+        title:'Gold Bill',
+        status:false
+      },
+      {
+        title:'Current Bill',
+        status:true
+      },])
+
+      function abc(){
+        var newtask=document.getElementById("i").value
+        setArr([...arr,{ title:newtask}])
+      }
+      function abd(i){
+        var x=[...arr]
+            x[i].status=!x[i].status;
+            setArr([...arr])
+      }
+      function acd(i){
+        var x=[...arr]
+        x[i].status=!x[i].status;
+        setArr([...arr])
+      }
+
+return(
+
+  <div>
+    <input type="text" id="i" />
+    <button onClick={abc}>add task</button>
+
+    {
+      arr.map(function(s,i){
+        return(
+          <div className="todo">
+            <ul >
+            <li style={s.status===true ?{backgroundColor:'red'}:{backgroundColor:'green'}}>{s.title} <button onClick={()=>{abd(i)}}>done</button><button onClick={()=>{abd(i)}}>undo</button></li>
+            
             </ul>
-        </div>
-    )
+            </div>
+        )
+
+
+      })
+    }
+  </div>
+)
+
 }
-export default Todolist;
+export default Todo;
