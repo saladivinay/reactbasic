@@ -14,6 +14,7 @@ function Todolist(props){
                     })
                 }
             </ul>
+            <button onClick={()=>{setTodo("batting")}}> Add Todo</button>
         </div>
     )
 }
